@@ -64,6 +64,18 @@
 }
 
 @layer components {
+  h1 {
+    @apply text-[40px] font-semibold leading-[150%];
+  }
+  h2 {
+    @apply text-[32px] font-semibold;
+  }
+  h3 {
+    @apply text-[24px] font-semibold;
+  }
+  p {
+    @apply text-[14px] leading-[175%];
+  }
   input {
     @apply border border-black-100 rounded-sm px-4 py-3 font-medium text-black-900;
   }

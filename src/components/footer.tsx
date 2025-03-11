@@ -37,7 +37,7 @@ const Footer = ({ newsletter = false }: { newsletter?: boolean }) => {
         <section id="social-media" className="space-y-2">
           <div className="flex items-center gap-2">
             <img src={logoFooter} alt="Ecommerce Logo" />
-            <h3 className="text-black-900 font-extrabold">Ecommerce</h3>
+            <h3 className="text-black-900 font-bold">Ecommerce</h3>
           </div>
           <p>
             DevCut is a YouTube channel for practical project-based learning.
