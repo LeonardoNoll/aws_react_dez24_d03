@@ -58,4 +58,17 @@
   --color-yellow-700: rgba(249, 193, 76, 1);
   --color-yellow-800: rgba(246, 187, 51, 1);
   --color-yellow-900: rgba(243, 180, 10, 1);
+
+  /* --spacing-md: 10rem; */
+  --spacing-md: 10%;
+}
+
+@layer components {
+  input {
+    @apply border border-black-100 rounded-sm px-4 py-3 font-medium text-black-900;
+  }
+
+  .btn {
+    @apply bg-black-900 text-white-900 py-3 px-6 rounded-sm hover:bg-black-800 hover:cursor-pointer;
+  }
 }
