@@ -1,7 +1,7 @@
 import heroEllipse from "../../assets/forms/hero-ellipse.svg";
 import heroStar from "../../assets/forms/hero-star.svg";
 import heroModel from "../../assets/images/hero-model.png";
-import Arrow from "../../components/ui/arrow";
+import Arrow from "../../components/icons/arrow";
 
 const Hero = () => {
   return (
@@ -9,7 +9,7 @@ const Hero = () => {
       <main className="flex flex-col justify-center items-start space-y-4 max-w-[400px] ">
         <h1 className="text-black-800">Fresh Arrivals Online</h1>
         <p className="text-black-600">Discover Our Newst Collection Today.</p>
-        <button className="btn flex items-center justify-center">
+        <button className="btn">
           View Collection
           <Arrow color="#fff" />
         </button>

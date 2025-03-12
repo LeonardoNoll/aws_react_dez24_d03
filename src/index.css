@@ -81,6 +81,6 @@
   }
 
   .btn {
-    @apply bg-black-900 text-white-900 py-3 px-6 rounded-sm hover:bg-black-800 hover:cursor-pointer;
+    @apply flex items-center justify-center bg-black-900 text-white-900 py-3 px-6 rounded-sm font-medium hover:bg-black-800 hover:cursor-pointer;
   }
 }

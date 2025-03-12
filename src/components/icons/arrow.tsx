@@ -1,4 +1,4 @@
-const Arrow = ({ color = "#5C5F6A" }: { color?: string }) => {
+const Arrow = ({ color = "rgba(255, 255, 255, 1)" }: { color?: string }) => {
   return (
     <svg
       width="24"
