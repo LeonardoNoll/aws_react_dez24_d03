@@ -33,8 +33,8 @@ const Footer = ({ newsletter = false }: { newsletter?: boolean }) => {
         </div>
       )}
       {/* <div className="md:px-md py-8 grid grid-cols-1 md:grid-cols-3 gap-4"> */}
-      <div className="md:px-md py-12 flex justify-between">
-        <section id="social-media" className="space-y-2">
+      <div className="md:px-md py-12 flex flex-col md:flex-row justify-center md:justify-between items-center gap-12">
+        <section id="social-media" className="space-y-2 w-1/4">
           <div className="flex items-center gap-2">
             <img src={logoFooter} alt="Ecommerce Logo" />
             <h3 className="text-black-900 font-bold">Ecommerce</h3>
@@ -54,7 +54,7 @@ const Footer = ({ newsletter = false }: { newsletter?: boolean }) => {
             </a>
           </div>
         </section>
-        <table id="links" className="text-start ">
+        <table id="links" className="text-start w-1/3">
           <tr>
             <th>SUPPORT</th>
             <th>COMPANY</th>
@@ -94,8 +94,8 @@ const Footer = ({ newsletter = false }: { newsletter?: boolean }) => {
             </td>
           </tr>
         </table>
-        <section id="payments" className="text-center">
-          <h3>ACCEPTED PAYMENTS</h3>
+        <section id="payments" className=" w-1/4">
+          <p className="font-medium">ACCEPTED PAYMENTS</p>
           <div className="flex gap-4 mt-4 grayscale">
             <img src={mastercard} alt="Mastercard Logo" />
             <img src={amex} alt="Amex Logo" />
