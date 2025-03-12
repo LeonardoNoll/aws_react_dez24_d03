@@ -1,7 +1,7 @@
-import React from "react";
-import ProductCard from "../../components/product-card";
+import ProductsList from "../../components/products-list";
+import { Product } from "../../types/product";
 
-const products = [
+const products: Product[] = [
   {
     name: "Teste",
     image:
@@ -34,17 +34,7 @@ const BestSelling = () => {
     <section id="best-selling" className="flex flex-col items-center py-24">
       <p>SHOP NOW</p>
       <h3>Best Selling</h3>
-      <div className="flex flex-col md:flex-row gap-4 md:gap-8 mt-8">
-        {products.map((product) => (
-          <ProductCard
-            key={product.name}
-            image={product.image}
-            name={product.name}
-            inStock={product.inStock}
-            price={product.price}
-          />
-        ))}
-      </div>
+      <ProductsList products={products} />
     </section>
   );
 };

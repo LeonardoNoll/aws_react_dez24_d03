@@ -1,8 +1,7 @@
-import Features from "./features";
-import Footer from "../../components/footer";
-import Hero from "./hero";
 import BestSelling from "./best-selling";
 import Cta from "./cta";
+import Features from "./features";
+import Hero from "./hero";
 import OnOffer from "./on-offer";
 
 const Home = () => {
@@ -13,7 +12,6 @@ const Home = () => {
       <BestSelling />
       <Cta />
       <OnOffer />
-      <Footer newsletter />
     </>
   );
 };

@@ -64,6 +64,10 @@
 }
 
 @layer components {
+  * {
+    @apply font-sans;
+  }
+
   h1 {
     @apply text-[40px] font-semibold leading-[150%];
   }
