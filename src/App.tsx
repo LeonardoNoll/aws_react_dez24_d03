@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router";
 import Home from "./pages/home/home";
 import Header from "./components/header";
 import Footer from "./components/footer";
+import Listing from "./pages/listing/listing";
 
 function App() {
   return (
@@ -9,6 +10,8 @@ function App() {
       <Header />
       <Routes>
         <Route index element={<Home />} />
+        <Route path="/listing" element={<Listing />} />
+        <Route path="*" element={<div>404</div>} />
       </Routes>
       <Footer newsletter />
     </>
