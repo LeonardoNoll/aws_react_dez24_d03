@@ -4,24 +4,18 @@ import {
   setCategoryFilter,
   setPriceFilter,
 } from "../../redux/slices/productFilterSlice";
-
-const CATEGORIES = [
-  "Perfume",
-  "Trousers",
-  "Shoes",
-  "Handbag",
-  "Hat",
-  "Thermos",
-];
+import { storeData } from "../../Data";
 
 const FilterSideBar = () => {
   const dispatch = useDispatch();
   const price = useSelector((store: RootState) => store.productFilter.price);
+  const categories = new Set(storeData.map((product) => product.category));
   return (
     <aside className="flex flex-col border border-black-100 rounded-md pt-6 pr-3 pb-4 pl-4 gap-10">
       <div>
         <p className="text-black-900 font-medium">Categories</p>
-        {CATEGORIES.map((category) => (
+
+        {Array.from(categories.values()).map((category) => (
           <div
             key={category}
             className="border-b border-black-100 p-4 space-x-2"

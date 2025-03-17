@@ -1,32 +1,38 @@
-import { useState } from "react";
 import { useSelector } from "react-redux";
-import Badge from "../../components/ui/badge";
+import { storeData } from "../../Data";
+import ProductsList from "../../components/products-list";
 import { RootState } from "../../redux/store";
 import FilterSideBar from "./category-picker";
-const Listing = () => {
-  const { productName, setProductName } = useState("");
+import FilterBar from "./filter-bar";
 
-  const categoryFilter = useSelector(
-    (store: RootState) => store.productFilter.category,
+const Listing = () => {
+  const { name, price, category } = useSelector(
+    (store: RootState) => store.productFilter,
   );
-  const price = useSelector((store: RootState) => store.productFilter.price);
+
+  const filteredProducts = storeData.filter((product) => {
+    const nameRegex = new RegExp(".*" + name + ".*", "i");
+    if (name && !product.name.match(nameRegex)) {
+      return false;
+    }
+    if (price > 0 && product.price > price) {
+      return false;
+    }
+    if (category && product.category !== category) {
+      return false;
+    }
+    return true;
+  });
 
   return (
-    <div className="flex flex-col md:flex-row justify-center items-center md:items-start md:px-md py-24">
+    <div className="flex flex-col md:flex-row justify-start items-center md:items-start md:px-md py-24 w-screen gap-8">
       <FilterSideBar />
-      <main>
-        <div
-          id="filter-control"
-          className="h-20 w-full flex items-center justify-between px-8"
-        >
-          <div>
-            <p>Applied Filters:</p>
-            <div className="flex gap-2">
-              {categoryFilter && <Badge>{categoryFilter}</Badge>}
-              {price > 0 && <Badge>{price}</Badge>}
-            </div>
-          </div>
-        </div>
+      <main className="flex flex-col gap-8 w-full">
+        <FilterBar />
+        <section className="flex flex-col gap-8 mt-8">
+          <p>Showing 1-9 of {storeData.length} results.</p>
+          <ProductsList products={filteredProducts} maxCols={3} />
+        </section>
       </main>
     </div>
   );
