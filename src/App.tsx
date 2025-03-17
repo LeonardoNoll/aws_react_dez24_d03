@@ -10,7 +10,7 @@ function App() {
       <Header />
       <Routes>
         <Route index element={<Home />} />
-        <Route path="/listing" element={<Listing />} />
+        <Route path="/shop" element={<Listing />} />
         <Route path="*" element={<div>404</div>} />
       </Routes>
       <Footer newsletter />

@@ -1,6 +1,7 @@
 export type Product = {
   name: string;
   image: string;
-  inStock: boolean;
+  onStock: number;
+  category: "Perfume" | "Trousers" | "Shoes" | "Handbag" | "Hat" | "Thermos";
   price: number;
 };
