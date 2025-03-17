@@ -9,7 +9,7 @@ const ProductCard = ({ product }: { product: Product }) => {
       </div>
       <p className="text-black-900 font-medium">{product.name}</p>
       <div className="flex gap-6 items-center justify-start">
-        <Badge>{product.inStock ? "IN STOCK" : "UNAVAILABLE"}</Badge>
+        <Badge>{product.inStock ? "IN STOCK" : "NO STOCK"}</Badge>
         <p className="text-black-600">${product.price}</p>
       </div>
     </div>

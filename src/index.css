@@ -77,7 +77,8 @@
   h3 {
     @apply text-[24px] font-semibold;
   }
-  p {
+  p,
+  .body-regular {
     @apply text-[14px] leading-[175%] text-black-500;
   }
   input {

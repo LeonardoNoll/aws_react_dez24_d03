@@ -26,7 +26,7 @@ export const storeData: Product[] = [
     name: "Product 4",
     image:
       "https://www.figma.com/file/5UZJJ8ov2jTbD1QEZoLtMz/image/7f439f883d50177232901e42884d41bd843ec040",
-    inStock: true,
+    inStock: false,
     price: 250,
   },
   {
