@@ -1,10 +1,19 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router";
-import Home from "./pages/home/home";
-import Header from "./components/header";
 import Footer from "./components/footer";
+import Header from "./components/header";
+import Home from "./pages/home/home";
 import Listing from "./pages/listing/listing";
-
+import { fetchProducts } from "./redux/slices/productsSlice";
+import type { AppDispatch } from "./redux/store";
 function App() {
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
+
   return (
     <>
       <Header />
