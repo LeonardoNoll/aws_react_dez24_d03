@@ -94,4 +94,7 @@
   .btn {
     @apply flex items-center justify-center bg-black-900 text-white-900 py-3 px-6 rounded-sm font-medium hover:bg-black-800 hover:cursor-pointer;
   }
+  .pagination-btn {
+    @apply flex items-center justify-center  text-center text-black-600 font-medium text-[12px] w-10 h-10 rounded-sm hover:bg-white-100 hover:cursor-pointer;
+  }
 }

@@ -1,7 +1,7 @@
-import React from "react";
+import { useSelector } from "react-redux";
+import Pagination from "../../components/pagination";
 import ProductsList from "../../components/products-list";
 import { storeData } from "../../Data";
-import { useSelector } from "react-redux";
 import { RootState } from "../../redux/store";
 
 const ListingGrid = () => {
@@ -24,8 +24,9 @@ const ListingGrid = () => {
 
   return (
     <section className="flex flex-col gap-8 mt-8">
-      <p>Showing 1-9 of {storeData.length} results.</p>
+      <p>Showing of {storeData.length} results.</p>
       <ProductsList products={filteredProducts} maxCols={3} />
+      <Pagination />
     </section>
   );
 };
