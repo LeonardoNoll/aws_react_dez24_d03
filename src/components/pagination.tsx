@@ -1,11 +1,12 @@
-import { useSelector } from "react-redux";
-import { storeData } from "../Data";
+import { useDispatch, useSelector } from "react-redux";
 import { setCurrentPage } from "../redux/slices/paginationSlice.ts";
 import { RootState } from "../redux/store";
 
 const Pagination = () => {
+  const dispatch = useDispatch();
   const productsPerPage = 9;
-  const maxPage = Math.ceil(storeData.length / productsPerPage);
+  const products = useSelector((store: RootState) => store.products.products);
+  const maxPage = Math.ceil(products.length / productsPerPage);
   const pages = [];
   for (let i = 1; i <= maxPage; i++) {
     pages.push(i);
@@ -15,32 +16,20 @@ const Pagination = () => {
   );
 
   return (
-    <div className="flex gap-1 border border-black-100 rounded-md p-2">
-      <button
-        className="border-r border-black-100 px-2"
-        onClick={() => setCurrentPage(currentPage - 1)}
-        disabled={currentPage === 1}
-      >
-        {"<"}
-      </button>
+    <div className="flex justify-center gap-4 mt-8 border border-black-100 rounded-md  w-fit mx-auto">
+      <div className="pagination-btn">{"<"}</div>
       {pages.map((page) => (
-        <button
+        <div
           key={page}
-          className={`px-2 ${
-            page === currentPage ? "bg-black-100 text-white" : ""
+          onClick={() => dispatch(setCurrentPage(page))}
+          className={`pagination-btn ${
+            currentPage === page ? "bg-black-100 text-white" : ""
           }`}
-          onClick={() => setCurrentPage(page)}
         >
           {page}
-        </button>
+        </div>
       ))}
-      <button
-        className="border-l border-black-100 px-2"
-        onClick={() => setCurrentPage(currentPage + 1)}
-        disabled={currentPage === maxPage}
-      >
-        {">"}
-      </button>
+      <div className="pagination-btn">{">"}</div>
     </div>
   );
 };

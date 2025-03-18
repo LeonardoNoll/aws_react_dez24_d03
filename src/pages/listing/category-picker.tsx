@@ -4,12 +4,12 @@ import {
   setCategoryFilter,
   setPriceFilter,
 } from "../../redux/slices/productFilterSlice";
-import { storeData } from "../../Data";
 
 const FilterSideBar = () => {
   const dispatch = useDispatch();
   const price = useSelector((store: RootState) => store.productFilter.price);
-  const categories = new Set(storeData.map((product) => product.category));
+  const products = useSelector((store: RootState) => store.products.products);
+  const categories = new Set(products.map((product) => product.category));
   return (
     <aside className="flex flex-col border border-black-100 rounded-md pt-6 pr-3 pb-4 pl-4 gap-10">
       <div>
