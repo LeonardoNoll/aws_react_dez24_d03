@@ -11,8 +11,8 @@ const Pagination = () => {
   for (let i = 1; i <= maxPage; i++) {
     pages.push(i);
   }
-  const { currentPage, totalPages } = useSelector(
-    (store: RootState) => store.pagination,
+  const currentPage = useSelector(
+    (store: RootState) => store.pagination.currentPage,
   );
 
   return (
