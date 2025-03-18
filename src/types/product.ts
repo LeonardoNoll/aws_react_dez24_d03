@@ -1,6 +1,7 @@
 export type Product = {
-  name: string | string[];
-  image: string;
+  id: number;
+  name: string;
+  image: string[];
   onStock: number;
   category: string;
   price: number;
