@@ -2,10 +2,18 @@ import { useParams } from "react-router";
 import More from "../../components/icons/more";
 import useFetchProduct from "../../hooks/useFetchProduct";
 import ProductMain from "./product-main";
+import { RootState } from "../../redux/store";
+import { useSelector } from "react-redux";
+import ProductsList from "../../components/products-list";
 
 const ProductPage = () => {
   const { id } = useParams<{ id: string }>();
   const { product, loading, error } = useFetchProduct(id);
+  const products = useSelector((store: RootState) => store.products.products);
+  const validProducts = products.filter(
+    (p) => p.category === product?.category && p.id !== product?.id,
+  );
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -33,6 +41,13 @@ const ProductPage = () => {
           <h5 className="font-semibold text-black-900">Details</h5>
           <p>{product.description}</p>
         </div>
+      </section>
+      <section className=" gap-12 md:px-md py-24">
+        <div>
+          <h3>You might also like</h3>
+          <p>SIMILAR PRODUCTS</p>
+        </div>
+        <ProductsList products={validProducts} lastIndex={4} />
       </section>
     </>
   );
