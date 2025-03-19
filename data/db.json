@@ -82,7 +82,7 @@
       "image": [
         "https://s3-alpha-sig.figma.com/img/cc73/aa4a/0e8af69dd454db02bbfa89c8b3be4f4a?Expires=1742774400&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=PQVar8aODwCxH~kzLRLNQVy9lTG10FS7XscelkyCBzR7-5fqO6-5t5NnlC6HtOtolrRzW0GQUayerMlIPDfIPwM1lp2c8BCaLqgH8KyNB8ue3wTqGtb1JurCsHsbcODVLFy7QuA7d9reOzrb~DNLwapwJXDcA~iyAhXIE-ppp7lswNPIdQYg0DHzaGC1ACYzLbxonvy0B-Xuji5yaYsSQeLzPFGbDuIznXsJyjZRKte87gE6jEzCOh99NlxbBUc35eaBxpyt5KkQBSuOk~vbJ-nrshLUV8PEcItB7TFK9tPGn2RR00dJlQyZQCFVtS2fnXa5-fao0oeQl6U--NfKxw__"
       ],
-      "onStock": 1,
+      "onStock": 0,
       "price": 250,
       "category": "Hat",
       "sizes": ["S", "M", "L", "XL"],

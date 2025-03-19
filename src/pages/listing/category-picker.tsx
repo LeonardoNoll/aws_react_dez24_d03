@@ -10,6 +10,8 @@ const FilterSideBar = () => {
   const price = useSelector((store: RootState) => store.productFilter.price);
   const products = useSelector((store: RootState) => store.products.products);
   const categories = new Set(products.map((product) => product.category));
+  const maxPrice = Math.max(...products.map((product) => product.price));
+
   return (
     <aside className="flex flex-col border border-black-100 rounded-md pt-6 pr-3 pb-4 pl-4 gap-10">
       <div>
@@ -44,7 +46,7 @@ const FilterSideBar = () => {
           name="price"
           id="price"
           min={0}
-          max={1000}
+          max={maxPrice}
           value={price}
           step={1}
           onChange={(e) => dispatch(setPriceFilter(Number(e.target.value)))}

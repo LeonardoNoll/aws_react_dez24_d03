@@ -4,7 +4,6 @@ import ProductsList from "../../components/products-list";
 
 const BestSelling = () => {
   const products = useSelector((store: RootState) => store.products.products);
-  console.log(products);
   const validProducts = products.filter((product) => product.onStock > 0);
   return (
     <section id="best-selling" className="flex flex-col items-center py-24">
