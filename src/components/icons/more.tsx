@@ -1,5 +1,3 @@
-import React from "react";
-
 const More = ({ color = "#0E1422" }: { color?: string }) => {
   return (
     <svg

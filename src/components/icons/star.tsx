@@ -1,5 +1,3 @@
-import React from "react";
-
 const Star = ({ color = "#5C5F6A" }: { color?: string }) => {
   return (
     <svg

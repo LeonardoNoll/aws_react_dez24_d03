@@ -1,5 +1,3 @@
-import React from "react";
-
 const ColorRadio = ({ color }: { color: string }) => {
   return (
     <div className="inline-flex items-center">

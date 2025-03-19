@@ -1,8 +1,7 @@
-import React from "react";
-import ProductMain from "./product-main";
 import { useParams } from "react-router";
-import useFetchProduct from "../../hooks/useFetchProduct";
 import More from "../../components/icons/more";
+import useFetchProduct from "../../hooks/useFetchProduct";
+import ProductMain from "./product-main";
 
 const ProductPage = () => {
   const { id } = useParams<{ id: string }>();
