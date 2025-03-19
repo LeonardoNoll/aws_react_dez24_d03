@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import Share from "../../components/icons/share";
 import Star from "../../components/icons/star";
 import Badge from "../../components/ui/badge";
-import useFetchProduct from "../../hooks/useFetchProduct";
+import { Product } from "../../types/product";
 
-const ProductMain = () => {
-  const { id } = useParams<{ id: string }>();
-  const { product, loading, error } = useFetchProduct(id);
+const ProductMain = ({ product }: { product: Product }) => {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedQuantity, setSelectedQuantity] = useState<number>(1);
@@ -19,17 +16,6 @@ const ProductMain = () => {
     }
   }, [product]);
 
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>{error}</p>;
-  }
-
-  if (!product) {
-    return <p>Product not found</p>;
-  }
   return (
     <section className="flex flex-col md:flex-row gap-12 md:px-md  py-24">
       <div id="image-carousel" className="flex-1/2 bg-white-100">
