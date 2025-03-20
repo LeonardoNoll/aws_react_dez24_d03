@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import ctaImg from "../../assets/images/cta-clothe.png";
 import Arrow from "../../components/icons/arrow";
 
@@ -13,9 +14,9 @@ const Cta = () => {
           Step into a world of style and explore our diverse collection of
           clothing categories.
         </p>
-        <button className="btn">
+        <Link to="/shop" className="btn">
           Shop Now <Arrow />
-        </button>
+        </Link>
       </main>
       <img src={ctaImg} width={225} />
     </section>
