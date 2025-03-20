@@ -40,11 +40,13 @@ const Header = () => {
             </Link>
           </SignedOut>
           <SignedIn>
-            <div className="flex items-center p-2 rounded-full bg-black-600 text-white">
-              {isLoaded &&
-                user &&
-                user?.firstName!.slice(0, 1) + user?.lastName!.slice(0, 1)}
-            </div>
+            <SignOutButton>
+              <div className="flex items-center p-2 rounded-full bg-black-600 text-white">
+                {isLoaded &&
+                  user &&
+                  user?.firstName!.slice(0, 1) + user?.lastName!.slice(0, 1)}
+              </div>
+            </SignOutButton>
           </SignedIn>
         </div>
       </div>
