@@ -55,44 +55,48 @@ const Footer = ({ newsletter = false }: { newsletter?: boolean }) => {
           </div>
         </section>
         <table id="links" className="text-start w-1/3">
-          <tr>
-            <th>SUPPORT</th>
-            <th>COMPANY</th>
-            <th>SHOP</th>
-          </tr>
-          <tr>
-            <td>
-              <a href="/faq">FAQ</a>
-            </td>
-            <td>
-              <a href="/faq">Terms of use</a>
-            </td>
-            <td>
-              <a href="/faq">Privacy Policy</a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a href="/faq">About us</a>
-            </td>
-            <td>
-              <a href="/faq">Contact</a>
-            </td>
-            <td>
-              <a href="/faq">Careers</a>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <a href="/faq">My Account</a>
-            </td>
-            <td>
-              <a href="/faq">Checkout</a>
-            </td>
-            <td>
-              <a href="/faq">Cart</a>
-            </td>
-          </tr>
+          <thead>
+            <tr>
+              <th>SUPPORT</th>
+              <th>COMPANY</th>
+              <th>SHOP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <a href="/faq">FAQ</a>
+              </td>
+              <td>
+                <a href="/faq">Terms of use</a>
+              </td>
+              <td>
+                <a href="/faq">Privacy Policy</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="/faq">About us</a>
+              </td>
+              <td>
+                <a href="/faq">Contact</a>
+              </td>
+              <td>
+                <a href="/faq">Careers</a>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="/faq">My Account</a>
+              </td>
+              <td>
+                <a href="/faq">Checkout</a>
+              </td>
+              <td>
+                <a href="/faq">Cart</a>
+              </td>
+            </tr>
+          </tbody>
         </table>
         <section id="payments" className=" w-1/4">
           <p className="font-medium">ACCEPTED PAYMENTS</p>
