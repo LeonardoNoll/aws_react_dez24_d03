@@ -19,6 +19,7 @@ const Register = () => {
     email: validateEmail(email),
     password: validatePassword(password),
   };
+  //TODO: add error message
   const [errorMessage, setErrorMessage] = useState("");
   const [sucess, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
