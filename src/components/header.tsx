@@ -3,8 +3,16 @@ import logo from "../assets/icons/logo.svg";
 import cart from "../assets/icons/cart.svg";
 import profile from "../assets/icons/profile.svg";
 import BreaCrumb from "./breadcrumb";
+import {
+  SignedIn,
+  SignedOut,
+  SignOutButton,
+  useSignIn,
+  useUser,
+} from "@clerk/clerk-react";
 
 const Header = () => {
+  const { isLoaded, user } = useUser();
   return (
     <header>
       <span className="bg-black-900 text-white w-full text-center py-2 md:px-default block">
@@ -26,7 +34,18 @@ const Header = () => {
         </div>
         <div id="header-right" className="flex  items-center gap-7">
           <img src={cart} alt="cart" />
-          <img src={profile} />
+          <SignedOut>
+            <Link to="/authentication">
+              <img src={profile} />
+            </Link>
+          </SignedOut>
+          <SignedIn>
+            <div className="flex items-center p-2 rounded-full bg-black-600 text-white">
+              {isLoaded &&
+                user &&
+                user?.firstName!.slice(0, 1) + user?.lastName!.slice(0, 1)}
+            </div>
+          </SignedIn>
         </div>
       </div>
       <BreaCrumb />
