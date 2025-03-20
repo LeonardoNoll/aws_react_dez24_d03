@@ -65,7 +65,10 @@ const Register = () => {
     return <BeatLoader />;
   }
   return (
-    <>
+    <form
+      className="flex flex-col items-center justify-center gap-8 "
+      onSubmit={handleSubmit}
+    >
       <div className="w-full space-y-1 ">
         <label htmlFor="name" className="text-black-900">
           Name
@@ -124,8 +127,8 @@ const Register = () => {
         Policy,
       </p>
       <button
+        type="submit"
         className={sucess ? "btn w-full bg-green-700" : "btn w-full"}
-        onClick={handleSubmit}
       >
         {loading ? (
           <BeatLoader color="rgba(255, 255, 255, 1)" />
@@ -135,10 +138,13 @@ const Register = () => {
           "Create account"
         )}
       </button>
+      {errorMessage && (
+        <InvalidInputMessage>{errorMessage}</InvalidInputMessage>
+      )}
       <Link to="/authentication" className="text-center w-full text-black-600">
         Already have an account? Login
       </Link>
-    </>
+    </form>
   );
 };
 

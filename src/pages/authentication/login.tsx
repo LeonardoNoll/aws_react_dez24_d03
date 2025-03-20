@@ -33,8 +33,7 @@ const Login = () => {
         navigate("/");
       }
     } catch (error: any) {
-      setErrorMessage(error.message);
-      console.error(error);
+      setErrorMessage("Invalid email or password");
     } finally {
       setLoading(false);
       setEmail("");
@@ -47,7 +46,10 @@ const Login = () => {
   }
 
   return (
-    <>
+    <form
+      className="flex flex-col items-center justify-center gap-8 "
+      onSubmit={handleSubmit}
+    >
       <div className="w-full ">
         <label htmlFor="email" className="text-black-900">
           Email
@@ -75,16 +77,17 @@ const Login = () => {
         />
       </div>
       {/* <p className="text-end w-full">Forgot password?</p> */}
-      <button className="btn w-full" onClick={handleSubmit}>
+      <button type="submit" className="btn w-full">
         {loading ? <BeatLoader color="rgba(255, 255, 255, 1)" /> : "Login"}
       </button>
+      {errorMessage && <p className="text-red-500">{errorMessage}</p>}
       <Link
         to="/authentication/register"
         className="text-center w-full text-black-600"
       >
         Don't have an account? Sign up
       </Link>
-    </>
+    </form>
   );
 };
 
