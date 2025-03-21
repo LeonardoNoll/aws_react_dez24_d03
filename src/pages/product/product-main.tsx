@@ -6,6 +6,7 @@ import { Product } from "../../types/product";
 import { useDispatch } from "react-redux";
 import { AppDispatch } from "../../redux/store";
 import { addProductOrder } from "../../redux/slices/cartSlice";
+import { useNavigate } from "react-router";
 
 const ProductMain = ({ product }: { product: Product }) => {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
@@ -13,6 +14,7 @@ const ProductMain = ({ product }: { product: Product }) => {
   const [selectedQuantity, setSelectedQuantity] = useState<number>(1);
 
   const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate();
 
   const addToCart = () => {
     if (!selectedColor || !selectedSize) return;
@@ -24,6 +26,7 @@ const ProductMain = ({ product }: { product: Product }) => {
       quantity: selectedQuantity,
     };
     dispatch(addProductOrder(productOrder));
+    navigate("/cart");
     return productOrder;
   };
 
@@ -58,27 +61,25 @@ const ProductMain = ({ product }: { product: Product }) => {
           <>
             <div id="color-selection">
               <p>AVAILABLE COLORS</p>
-              {Array.from(product.colors).map((color) => (
-                <div className="inline-flex items-center">
+              <div className="inline-flex gap-2 items-center">
+                {Array.from(product.colors).map((color) => (
                   <label
-                    className="relative flex items-center cursor-pointer"
+                    className="relative flex items-center  cursor-pointer"
                     htmlFor={color}
                   >
                     <input
                       name="color"
                       type="radio"
-                      className={`peer h-5 w-5 cursor-pointer appearance-none rounded-full border border-slate-300  transition-all checked:bg-red-500`}
+                      className={` size-5 cursor-pointer  rounded-full border border-slate-300  transition-all checked:bg-red-500`}
                       value={color}
                       id={color}
                       checked={selectedColor === color}
                       onChange={() => setSelectedColor(color)}
                     />
-                    <span
-                      className={`absolute w-3 h-3 rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 checked:bg-red-500`}
-                    />
                   </label>
-                </div>
-              ))}
+                ))}
+              </div>
+              {selectedColor}
             </div>
             <div id="size-selection">
               <p>AVAILABLE SIZES</p>

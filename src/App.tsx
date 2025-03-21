@@ -12,6 +12,7 @@ import type { AppDispatch } from "./redux/store";
 import Login from "./pages/authentication/login";
 import Register from "./pages/authentication/register";
 import Cart from "./pages/cart/cart";
+import Page404 from "./pages/404/404";
 function App() {
   const dispatch = useDispatch<AppDispatch>();
 
@@ -31,7 +32,7 @@ function App() {
           <Route index element={<Login />} />
           <Route path="register" element={<Register />} />
         </Route>
-        <Route path="*" element={<div>404</div>} />
+        <Route path="*" element={<Page404 />} />
       </Routes>
       <Footer newsletter />
     </>

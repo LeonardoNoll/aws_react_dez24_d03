@@ -17,7 +17,7 @@ const FilterBar = () => {
   return (
     <section
       id="filter-control"
-      className="h-20 w-max flex flex-row items-center justify-between px-8"
+      className="h-20 w-full flex flex-row items-center justify-between px-8"
     >
       <div id="applied-fillters" className="flex flex-col gap-4">
         <p>Applied Filters:</p>

@@ -37,7 +37,7 @@ const Cart = () => {
                   <p className="text-black-900">{productOrder.product.name}</p>
                   <div className="flex gap-2 items-center align-middle ">
                     <p className="text-xs">Color:</p>
-                    <Circle />
+                    <Circle color={productOrder.selectedColor} />
                     <p className="text-xs"> —</p>
                     <p className="text-xs">Size: {productOrder.selectedSize}</p>
                   </div>
@@ -49,12 +49,13 @@ const Cart = () => {
                   {/* TODO: - and + should be svgs */}
                   <button
                     onClick={() => {
-                      dispatch(
-                        editProductOrder({
-                          ...productOrder,
-                          quantity: productOrder.quantity - 1,
-                        }),
-                      );
+                      if (productOrder.quantity > 1)
+                        dispatch(
+                          editProductOrder({
+                            ...productOrder,
+                            quantity: productOrder.quantity - 1,
+                          }),
+                        );
                     }}
                   >
                     -

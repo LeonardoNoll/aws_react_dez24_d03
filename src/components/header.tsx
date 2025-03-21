@@ -1,19 +1,26 @@
-import { Link, useNavigate } from "react-router";
-import logo from "../assets/icons/logo.svg";
-import cart from "../assets/icons/cart.svg";
-import profile from "../assets/icons/profile.svg";
-import BreaCrumb from "./breadcrumb";
 import {
   SignedIn,
   SignedOut,
   SignOutButton,
-  useSignIn,
   useUser,
 } from "@clerk/clerk-react";
+import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router";
+import cart from "../assets/icons/cart.svg";
+import logo from "../assets/icons/logo.svg";
+import profile from "../assets/icons/profile.svg";
+import { RootState } from "../redux/store";
+import Breadcrumb from "./breadcrumb";
 
 const Header = () => {
   const navigate = useNavigate();
   const { isLoaded, user } = useUser();
+  const productsOrder = useSelector(
+    (store: RootState) => store.cart.productOrders,
+  );
+  const totalItems = productsOrder.reduce((acc: number, productOrder) => {
+    return acc + productOrder.quantity;
+  }, 0);
   return (
     <header>
       <span className="bg-black-900 text-white w-full text-center py-2 md:px-default block">
@@ -34,7 +41,14 @@ const Header = () => {
           </nav>
         </div>
         <div id="header-right" className="flex  items-center gap-7">
-          <img src={cart} alt="cart" onClick={() => navigate("/cart")} />
+          <div className="relative">
+            <img src={cart} alt="cart" onClick={() => navigate("/cart")} />
+            {totalItems > 0 && (
+              <span className="absolute bottom-[-4px] right-[-8px] size-4.5 bg-red-500 text-white text-[12px] text-center align-middle rounded-full ">
+                {totalItems}
+              </span>
+            )}
+          </div>
           <SignedOut>
             <Link to="/authentication">
               <img src={profile} />
@@ -42,7 +56,7 @@ const Header = () => {
           </SignedOut>
           <SignedIn>
             <SignOutButton>
-              <div className="flex items-center p-2 rounded-full bg-black-600 text-white">
+              <div className="flex  text-center align-middle justify-center  items-center rounded-full size-12 bg-blue-100 text-blue-900">
                 {isLoaded &&
                   user &&
                   user?.firstName!.slice(0, 1) + user?.lastName!.slice(0, 1)}
@@ -51,7 +65,7 @@ const Header = () => {
           </SignedIn>
         </div>
       </div>
-      <BreaCrumb />
+      <Breadcrumb />
     </header>
   );
 };
