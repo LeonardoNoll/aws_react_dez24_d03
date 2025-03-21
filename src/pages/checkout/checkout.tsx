@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { BeatLoader } from "react-spinners";
 import getCep from "../../utils/getCep";
+import CheckOutSummary from "./checkout-summary";
 
 const Checkout = () => {
   const { isLoaded, user } = useUser();
@@ -26,6 +27,17 @@ const Checkout = () => {
     navigate("/authentication");
     return null;
   }
+  const handleCheckOut = () => {
+    const checkoutDetails = {
+      zipCode,
+      country,
+      city,
+      state,
+      streetAddress,
+      fullName,
+      email,
+    };
+  };
 
   const getZipCodeInfo = async (zipCode: string) => {
     const data = await getCep(zipCode);
@@ -44,6 +56,7 @@ const Checkout = () => {
             <input
               type="text"
               id="zip-code"
+              value={zipCode}
               onChange={(e) => {
                 setZipCode(e.target.value);
                 if (zipCodeRegex.test(e.target.value)) {
@@ -79,7 +92,7 @@ const Checkout = () => {
               onChange={(e) => setState(e.target.value)}
             />
           </div>
-          <div className="col-span-1">
+          <div className="col-span-2">
             <label htmlFor="street-address">Street Address</label>
             <input
               type="text"
@@ -98,6 +111,7 @@ const Checkout = () => {
           </div>
         </form>
       </section>
+      <CheckOutSummary checkOut={handleCheckOut} />
     </main>
   );
 };
