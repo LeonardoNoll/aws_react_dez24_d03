@@ -3,11 +3,29 @@ import Share from "../../components/icons/share";
 import Star from "../../components/icons/star";
 import Badge from "../../components/ui/badge";
 import { Product } from "../../types/product";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "../../redux/store";
+import { addProductOrder } from "../../redux/slices/cartSlice";
 
 const ProductMain = ({ product }: { product: Product }) => {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedQuantity, setSelectedQuantity] = useState<number>(1);
+
+  const dispatch = useDispatch<AppDispatch>();
+
+  const addToCart = () => {
+    if (!selectedColor || !selectedSize) return;
+    const productOrder = {
+      id: Date.now(),
+      product: product,
+      selectedSize: selectedSize,
+      selectedColor: selectedColor,
+      quantity: selectedQuantity,
+    };
+    dispatch(addProductOrder(productOrder));
+    return productOrder;
+  };
 
   useEffect(() => {
     if (product) {
@@ -95,7 +113,7 @@ const ProductMain = ({ product }: { product: Product }) => {
                 </button>
               </div>
             </div>
-            <button id="add-to-cart" className="btn">
+            <button id="add-to-cart" className="btn" onClick={addToCart}>
               Add to cart
             </button>
             <p>— Free shipping on orders $100+</p>

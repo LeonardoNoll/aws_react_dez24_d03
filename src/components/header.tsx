@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import logo from "../assets/icons/logo.svg";
 import cart from "../assets/icons/cart.svg";
 import profile from "../assets/icons/profile.svg";
@@ -12,6 +12,7 @@ import {
 } from "@clerk/clerk-react";
 
 const Header = () => {
+  const navigate = useNavigate();
   const { isLoaded, user } = useUser();
   return (
     <header>
@@ -33,7 +34,7 @@ const Header = () => {
           </nav>
         </div>
         <div id="header-right" className="flex  items-center gap-7">
-          <img src={cart} alt="cart" />
+          <img src={cart} alt="cart" onClick={() => navigate("/cart")} />
           <SignedOut>
             <Link to="/authentication">
               <img src={profile} />

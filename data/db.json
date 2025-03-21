@@ -65,7 +65,7 @@
       "id": 5,
       "name": "Zephyr Mesh Running Sneakers",
       "image": [
-        "https://www.figma.com/file/5UZJJ8ov2jTbD1QEZoLtMz/image/7f439f883d50177232901e42884d41bd843ec040"
+        "https://s3-alpha-sig.figma.com/img/a8e6/69c2/8e2c1947b16876117a87f3867e55e8e1?Expires=1743379200&Key-Pair-Id=APKAQ4GOSFWCW27IBOMQ&Signature=SNBviGedC~VvAoHLvyXEuHeSpRLxYWBh9Nr8lBPlybjc-p6ZVi3SYpejjqJXrDsKg91HQcYGfGKvek-PJLjqZ5nKy4Gj5O~xJCM4mT6YXBwdTZBQ-Rx3fj5UE72raYBN8k7yg7VOwT1WhBwn0nVrXLZFMkmvTlKppQi17ClPhH6-kX4q0YQd2s0rmx~~LQtqfKYc4dLRM5171YuTZk6fH-w~8fKh2-no93i2DjjjnJoT3udPQg7qNAsi4XBo7hD4-GxsKvG4ry0GgBsesskBIUq7FZfDRJzYY255lswAI73kGaLDxiMleRpwb01OhSkvJ-Um2FxdYAPlB2TM4SAE6Q__"
       ],
       "onStock": 1,
       "price": 250,
@@ -128,6 +128,7 @@
       "onStock": 1,
       "price": 80,
       "category": "Scarf",
+      "sizes": ["S", "M", "L", "XL"],
       "colors": ["Black", "Blue", "Green"],
       "description": "A luxurious cashmere scarf that is soft, warm, and lightweight. The scarf features a classic design with fringed edges. It is available in a range of colors.",
       "rating": 4.0,

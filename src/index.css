@@ -77,6 +77,12 @@
   h3 {
     @apply text-[24px] font-semibold;
   }
+  h4 {
+    @apply text-[18px] font-semibold;
+  }
+  h5 {
+    @apply text-[16px] font-semibold;
+  }
   p,
   .body-regular {
     @apply text-[14px] leading-[175%] text-black-500;
@@ -96,5 +102,8 @@
   }
   .pagination-btn {
     @apply flex items-center justify-center  text-center text-black-600 font-medium text-[12px] w-10 h-10 rounded-sm hover:bg-white-100 hover:cursor-pointer;
+  }
+  .order-field {
+    @apply flex items-center justify-between;
   }
 }

@@ -11,6 +11,7 @@ import { fetchProducts } from "./redux/slices/productsSlice";
 import type { AppDispatch } from "./redux/store";
 import Login from "./pages/authentication/login";
 import Register from "./pages/authentication/register";
+import Cart from "./pages/cart/cart";
 function App() {
   const dispatch = useDispatch<AppDispatch>();
 
@@ -25,6 +26,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/shop" element={<Listing />} />
         <Route path="/shop/:id" element={<ProductPage />} />
+        <Route path="/cart" element={<Cart />} />
         <Route path="/authentication" element={<Authentication />}>
           <Route index element={<Login />} />
           <Route path="register" element={<Register />} />
