@@ -10,6 +10,7 @@ const Breadcrumb = () => {
     "/shop": "Search",
     "/about": "About",
     "/cart": "Cart",
+    "/checkout": "Checkout",
     "/authentication": "Login",
     "/authentication/register": "Sign Up",
     "/": "Home",

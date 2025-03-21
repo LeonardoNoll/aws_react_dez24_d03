@@ -90,7 +90,9 @@
   input {
     @apply border border-black-100 rounded-sm px-4 py-3 font-medium text-black-900;
   }
-
+  input:disabled {
+    @apply bg-black-100 text-black-600;
+  }
   th {
     @apply text-[14px] leading-[175%] text-black-300 font-medium text-left;
   }
@@ -105,5 +107,12 @@
   }
   .order-field {
     @apply flex items-center justify-between;
+  }
+  .checkout-form {
+    @apply grid grid-cols-2 gap-8 p-12;
+
+    & > div {
+      @apply flex flex-col gap-2;
+    }
   }
 }

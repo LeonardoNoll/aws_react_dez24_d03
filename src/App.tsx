@@ -13,6 +13,7 @@ import Login from "./pages/authentication/login";
 import Register from "./pages/authentication/register";
 import Cart from "./pages/cart/cart";
 import Page404 from "./pages/404/404";
+import Checkout from "./pages/checkout/checkout";
 function App() {
   const dispatch = useDispatch<AppDispatch>();
 
@@ -28,6 +29,7 @@ function App() {
         <Route path="/shop" element={<Listing />} />
         <Route path="/shop/:id" element={<ProductPage />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/checkout" element={<Checkout />} />
         <Route path="/authentication" element={<Authentication />}>
           <Route index element={<Login />} />
           <Route path="register" element={<Register />} />
